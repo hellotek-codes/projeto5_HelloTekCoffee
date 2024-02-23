@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    & input {
+        border: none;
+    }
+
+    & button {
+        border:none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    & ul {
+        text-decoration: none;
+    }
+
+    & a {
+        text-decoration: none;
+    }
+}
