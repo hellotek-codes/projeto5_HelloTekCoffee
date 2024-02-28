@@ -5,10 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/styles.css">
     
     <title>HelloTek Coffee</title>
 </head>
 <body>
-    <h1>Coffee Tek</h1>
+    <div id="frame">
+        <header>
+            <h1>LOGO</h1>
+            <nav>
+                <div class="icons">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </div>
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Orders</li>
+                    <li>Restaurants</li>
+                    <li>Finance</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </main>
+        <aside>
+            <section id="delivery">
+                <h3>DELIVERY ADDRESS</h3>
+                <p><i class="fa-regular fa-map"></i> 1478, Street No. 52, West New York</p>
+                <p> <i class="fa-regular fa-clock"></i> 20 min</p>
+            </section>
+            <section id="order">
+                <div id="cart_title">
+                    <h2><i class="fa-solid fa-cart-shopping"></i> Cart</h2>
+                    <p>Order ID: <span id="order_id">#098ed</span></p>
+                </div>
+                <ul id="order_type">
+                    <li class="selected">Delivery</li>
+                    <li>Dine in</li>
+                    <li>Takeaway</li>
+                </ul>
+                <ul id="order_items_list">
+                    <li class="order_item">
+                        <img src="#">
+                        <div class="item_description">
+                            <h3>Vanilla Latte</h3>
+                            <p>Sweet coffee</p>
+                            <p>Units: 2</p>
+                        </div>
+                        <button><i class="fa-regular fa-trash-can fa-lg"></i></button>
+                    </li>
+                    <li class="order_item">
+                        <img src="#">
+                        <div class="item_description">
+                            <h3>Vanilla Latte</h3>
+                            <p>Sweet coffee</p>
+                            <p>Units: 2</p>
+                        </div>
+                        <button><i class="fa-regular fa-trash-can fa-lg"></i></button>
+                    </li>
+                </ul>
+                <div id="circle_decoration_left"></div>
+                <div id="circle_decoration_right"></div>
+                <input type="text" placeholder="Promotion Code">
+                <button type="submit">Submit</button>
+            </section>
+            <section id="order_sumary">
+                <div>
+                    <p>Sub Total</p>
+                    <p>$155.20</p>
+                </div>
+                <div>
+                    <p>Delivery</p>
+                    <p>$10</p>
+                </div>
+                <div>
+                    <p>TOTAL</p>
+                    <p>$165.20</p>
+                </div>
+            </section>
+            <button type="submit">Confirm Order</button>
+        </aside>
+    </div>
+
+    <script src="https://kit.fontawesome.com/b8adcf5390.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -11,10 +11,12 @@
         border:none;
         outline: none;
         cursor: pointer;
+        color: #313030;
+        /* background-color: transparent; */
     }
 
     & ul {
-        text-decoration: none;
+        list-style: none;
     }
 
     & a {
