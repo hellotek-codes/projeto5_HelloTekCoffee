@@ -119,8 +119,6 @@ body {
 
     section {
       width: 100%;
-      /* line-height: 1.5; */
-      /* background-color: blue; */
 
       h2 {
         color: #fff;
@@ -237,7 +235,12 @@ body {
           padding-top: 5px;
 
           border-radius: 15px;
+          border: 1px solid transparent;
           background-color: #313131;
+
+          &:hover{
+            border: 1px solid  #ee5d55;
+          }
 
           img {
             width: 90px;
@@ -248,11 +251,7 @@ body {
 
             object-fit: cover;
 
-            border: 1px solid transparent;
-
-            &:hover{
-              border: 1px solid  #ee5d55;
-            }
+            /* border: 1px solid transparent; */
           }
 
           h3 {

@@ -1,10 +1,23 @@
-export const data = [
+export const beverages = [
   {
     id: 1,
-    img: "",
-    name: "",
-    description: "",
-    size: [35, 45, 55],
-    price: [10, 20, 30],
+    img: "./src/imgs/coffee-red.jpg",
+    name: "Vanilla Latte",
+    category: "Bebida Quente",
+    price: 5.50,
+  },
+  {
+    id: 2,
+    img: "./src/imgs/coffee.jpg",
+    name: "Capuccino",
+    category: "Bebida Quente",
+    price: 4.50,
+  },
+  {
+    id: 1,
+    img: "./src/imgs/coffee2.jpg",
+    name: "Latte",
+    category: "Bebida Quente",
+    price: 4,
   },
 ];
