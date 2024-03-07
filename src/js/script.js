@@ -8,8 +8,8 @@ const categoryList = document.querySelector(".category_list");
 const selectedCategoryItems = document.querySelector(".category_items");
 
 
-function createCategoryCard(categories_list_db){
-    categories_list_db.forEach((category) => {
+function createCategoryCard(categoriesListDb){
+    categoriesListDb.forEach((category) => {
         const listItem = document.createElement("li");
         const button = document.createElement("button");
         const image = document.createElement("img");
@@ -49,8 +49,8 @@ function displayCategoryItems(category) {
 };
 
 
-function createSelectedCategoryItemCard(selected_category_db){
-    selected_category_db.forEach((list_item) => {
+function createSelectedCategoryItemCard(selectedCategoryDb){
+    selectedCategoryDb.forEach((list_item) => {
         const listItem = document.createElement("li");
         const image = document.createElement("img");
         const title = document.createElement("h3");
