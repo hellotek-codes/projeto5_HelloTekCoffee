@@ -45,3 +45,15 @@ Imagem de gadost0 por Pixabay
 
 - https://pixabay.com/pt/photos/tabela-caf%C3%A9-copo-cappuccino-4566563/
 Imagem de Яна por Pixabay
+
+- https://pixabay.com/pt/illustrations/ai-gerado-sacudir-bebida-sobremesa-8510155/
+Imagem de Mohammad Omar Siddiqui por Pixabay
+
+- https://pixabay.com/pt/illustrations/ai-gerado-morangos-smoothie-8481306/
+Imagem de Mohammad Omar Siddiqui por Pixabay
+
+- https://pixabay.com/pt/illustrations/caf%C3%A9-vidro-frio-frappe-bebida-8409154/
+Imagem de Kalpesh Ajugia por Pixabay
+
+- https://pixabay.com/pt/photos/panela-jarro-porcelana-recipiente-2436774/
+Imagem de gkgegk por Pixabay

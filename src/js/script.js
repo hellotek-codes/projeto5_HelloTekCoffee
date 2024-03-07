@@ -1,10 +1,12 @@
 import { categories } from "./dataBase/categoriesDatabase.js";
-import { beverages } from "./dataBase/beveragesDataBase.js";
+import { coldBeverages } from "./dataBase/coldBeveragesDataBase.js";
+import { hotBeverages } from "./dataBase/hotBeveragesDataBase.js";
 import { food } from "./dataBase/foodDataBase.js";
 import { merchandise } from "./dataBase/merchandiseDataBase.js";
 
 const categoryList = document.querySelector(".category_list");
 const selectedCategoryItems = document.querySelector(".category_items");
+
 
 function createCategoryCard(categories_list_db){
     categories_list_db.forEach((category) => {
@@ -15,6 +17,10 @@ function createCategoryCard(categories_list_db){
         image.src = category.img;
 
         button.appendChild(image);
+        button.addEventListener("click", () => {
+            displayCategoryItems(category);
+        });
+        
         listItem.appendChild(button);
 
         categoryList.appendChild(listItem);
@@ -22,6 +28,26 @@ function createCategoryCard(categories_list_db){
 };
 
 createCategoryCard(categories);
+
+function displayCategoryItems(category) {
+    selectedCategoryItems.innerHTML = "";
+
+    switch(category.id) {
+        case 1:
+            createSelectedCategoryItemCard(hotBeverages);
+            break;
+        case 2:
+            createSelectedCategoryItemCard(coldBeverages);
+            break;
+        case 3:
+            createSelectedCategoryItemCard(food);
+            break;
+        case 4:
+            createSelectedCategoryItemCard(merchandise);
+            break;
+    }
+};
+
 
 function createSelectedCategoryItemCard(selected_category_db){
     selected_category_db.forEach((list_item) => {
@@ -46,7 +72,18 @@ function createSelectedCategoryItemCard(selected_category_db){
     })
 };
 
-// createSelectedCategoryItemCard(beverages);
-// createSelectedCategoryItemCard(food);
-createSelectedCategoryItemCard(merchandise);
+function orderType(){
+    const orderTypeButton = document.querySelectorAll(".order_type_button");
 
+    orderTypeButton.forEach(button => {
+        button.addEventListener("click", () => {
+            orderTypeButton.forEach(btn => {
+                btn.parentNode.classList.remove('selected');
+            });
+            button.parentNode.classList.add('selected');
+        })
+    })
+};
+
+orderType();
+createSelectedCategoryItemCard(hotBeverages);

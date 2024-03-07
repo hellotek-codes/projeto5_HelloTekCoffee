@@ -238,6 +238,10 @@ body {
           border: 1px solid transparent;
           background-color: #313131;
 
+          text-align: center;
+
+          cursor: pointer;
+
           &:hover{
             border: 1px solid  #ee5d55;
           }
@@ -381,9 +385,13 @@ body {
         border-radius: 50px;
 
         li {
-          color: #fff;
           font-size: 0.75rem;
           padding: 0.7rem 0.8rem;
+
+          button {
+            background-color: transparent;
+            color: #fff; 
+          }
         }
 
         .selected {

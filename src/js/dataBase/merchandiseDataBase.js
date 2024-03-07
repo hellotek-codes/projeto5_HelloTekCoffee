@@ -15,8 +15,8 @@ export const merchandise = [
   },
   {
     id: 1,
-    img: "./src/imgs/merch-cups.jpg",
-    name: "Jogo de café",
+    img: "./src/imgs/merch-tea-pot.jpg",
+    name: "Bule de Chá",
     category: "Mercadoria",
     price: 54.30,
   },

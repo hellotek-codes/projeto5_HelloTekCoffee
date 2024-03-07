@@ -14,7 +14,7 @@ export const food = [
     price: 5.80,
   },
   {
-    id: 1,
+    id: 3,
     img: "./src/imgs/cake.jpg",
     name: "Bolo de Queijo",
     category: "Comida",

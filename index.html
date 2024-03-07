@@ -54,13 +54,13 @@
 
         <section id="categories">
           <h2>Categorias</h2>
-          <p>Lista de <span>todas</span> as Categories</p>
+          <p>Click na imagem para <span>selecionar</span> a Categoria desejada</p>
           <ul class="category_list"></ul>
         </section>
         
         <section id="selected_category">
-          <h2>Bebidas Quentes</h2>
-          <p><span>As melhores</span> bebidas quentes</p>
+          <h2>Itens da categoria selecionada</h2>
+          <p><span>Click no item</span> para adicionar ao carrinho</p>
           <ul class="category_items"></ul>
         </section>
 
@@ -78,24 +78,11 @@
               <p class="address">Address: 1478 N.52, West New York</p>
               <p>Total $ 22.50</p>
             </li>
-            <li>
-              <p>Order ID: #16rgd</p>
-              <p class="address">Address: 1478 N.52, West New York</p>
-              <p>Total $ 22.50</p>
-            </li>
-            <li>
-              <p>Order ID: #16rgd</p>
-              <p class="address">Address: 1478 N.52, West New York</p>
-              <p>Total $ 22.50</p>
-            </li>
-            <li>
-              <p>Order ID: #16rgd</p>
-              <p class="address">Address: 1478 N.52, West New York</p>
-              <p>Total $ 22.50</p>
-            </li>
           </ul>
         </section>
+
       </main>
+
       <aside>
         <section id="delivery">
           <h3>DELIVERY ADDRESS</h3>
@@ -105,16 +92,25 @@
           </p>
           <p><i class="fa-regular fa-clock"></i> 20 min</p>
         </section>
+
         <section id="order">
           <div id="cart_title">
             <h2><i class="fa-solid fa-cart-shopping"></i> Cart</h2>
             <p>Order ID: <span id="order_id">#12ed</span></p>
           </div>
+          
           <ul id="order_type">
-            <li class="selected">Delivery</li>
-            <li>Dine in</li>
-            <li>Takeaway</li>
+            <li class="selected">
+              <button type="submit" class="order_type_button">Delivery</button>
+            </li>
+            <li>
+              <button type="submit" class="order_type_button">Dine in</button>
+            </li>
+            <li>
+              <button type="submit" class="order_type_button">Takeaway</button>
+            </li>
           </ul>
+          
           <ul id="order_items_list">
             <li class="order_item">
               <img src="./src/imgs/coffee-red.jpg" />
