@@ -6,84 +6,163 @@ import { merchandise } from "./dataBase/merchandiseDataBase.js";
 
 const categoryList = document.querySelector(".category_list");
 const selectedCategoryItems = document.querySelector(".category_items");
+const orderItemsList = document.querySelector("#order_items_list");
+const shoppingCartArray = [];
 
+function createCategoryCard(categoriesListDb) {
+  categoriesListDb.forEach((category) => {
+    const listItem = document.createElement("li");
+    const button = document.createElement("button");
+    const image = document.createElement("img");
 
-function createCategoryCard(categoriesListDb){
-    categoriesListDb.forEach((category) => {
-        const listItem = document.createElement("li");
-        const button = document.createElement("button");
-        const image = document.createElement("img");
+    image.src = category.img;
 
-        image.src = category.img;
+    button.appendChild(image);
+    button.addEventListener("click", () => {
+      displayCategoryItems(category);
+    });
 
-        button.appendChild(image);
-        button.addEventListener("click", () => {
-            displayCategoryItems(category);
-        });
-        
-        listItem.appendChild(button);
+    listItem.appendChild(button);
 
-        categoryList.appendChild(listItem);
-    })
-};
-
-createCategoryCard(categories);
+    categoryList.appendChild(listItem);
+  });
+}
 
 function displayCategoryItems(category) {
-    selectedCategoryItems.innerHTML = "";
+  selectedCategoryItems.innerHTML = "";
 
-    switch(category.id) {
-        case 1:
-            createSelectedCategoryItemCard(hotBeverages);
-            break;
-        case 2:
-            createSelectedCategoryItemCard(coldBeverages);
-            break;
-        case 3:
-            createSelectedCategoryItemCard(food);
-            break;
-        case 4:
-            createSelectedCategoryItemCard(merchandise);
-            break;
+  switch (category.id) {
+    case 1:
+      createSelectedCategoryItemCard(hotBeverages);
+      break;
+    case 2:
+      createSelectedCategoryItemCard(coldBeverages);
+      break;
+    case 3:
+      createSelectedCategoryItemCard(food);
+      break;
+    case 4:
+      createSelectedCategoryItemCard(merchandise);
+      break;
+  }
+}
+
+function handleClick(event) {
+  const clickedItem = event.target.closest("li");
+
+  const id = Number(clickedItem.id);
+  const title = clickedItem.querySelector("h3");
+  const image = clickedItem.querySelector("img");
+  const category = [...clickedItem.querySelectorAll("p")].map(
+    (p) => p.textContent
+  );
+  const quantity = 0;
+
+  const selectedItem = {
+    id: id,
+    title: title.innerText,
+    image: image.src,
+    category: category[0],
+    price: category[1],
+    quantity: quantity,
+  };
+
+  shoppingCartArray.unshift(selectedItem);
+  createShoppingCartList(shoppingCartArray)
+  console.log(shoppingCartArray)
+
+  return selectedItem;
+}
+
+function createSelectedCategoryItemCard(selectedCategoryDb) {
+  selectedCategoryItems.removeEventListener("click", handleClick);
+
+  selectedCategoryDb.forEach((list_item) => {
+    const listItem = document.createElement("li");
+    const image = document.createElement("img");
+    const name = document.createElement("h3");
+    const category = document.createElement("p");
+    const price = document.createElement("p");
+
+    listItem.id = list_item.id;
+    image.src = list_item.img;
+    name.textContent = list_item.name;
+    category.textContent = list_item.category;
+    price.innerText = `R$ ${list_item.price.toLocaleString("pt-BR", {
+      styles: "currency",
+      currency: "BRD",
+      minimumFractionDigits: 2,
+    })}`;
+
+    listItem.append(image, name, category, price);
+    selectedCategoryItems.appendChild(listItem);
+  });
+
+  selectedCategoryItems.addEventListener("click", handleClick);
+}
+
+function orderType() {
+  const orderTypeButton = document.querySelectorAll(".order_type_button");
+
+  orderTypeButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      orderTypeButton.forEach((btn) => {
+        btn.parentNode.classList.remove("selected");
+      });
+      button.parentNode.classList.add("selected");
+    });
+  });
+}
+
+function createCardforTheShoppingCartItem(itemsList) {
+  itemsList.forEach((item) => {
+    const orderItem = document.createElement("li");
+    const image = document.createElement("img");
+    const itemDetailsContainer = document.createElement("div");
+    const itemName = document.createElement("h3");
+    const itemCategory = document.createElement("p");
+    const itemQuantity = document.createElement("p");
+    const deleteIcon = document.createElement("i");
+    const itemDeleteButton = document.createElement("button");
+
+    orderItem.classList.add("order_item");
+    orderItem.id = item.id;
+    image.src = item.image;
+    itemDetailsContainer.classList.add("item_description");
+    itemName.innerText = item.title;
+    itemCategory.innerText = item.category;
+    itemQuantity.innerText = `Quantidade: ${item.quantity}`;
+    deleteIcon.classList.add("fa", "fa-regular", "fa-trash-can", "fa-lg");
+
+    itemDeleteButton.appendChild(deleteIcon);
+    itemDetailsContainer.append(itemName, itemCategory, itemQuantity);
+    orderItem.append(image, itemDetailsContainer, itemDeleteButton);
+
+    orderItemsList.appendChild(orderItem);
+  });
+}
+
+function createShoppingCartList(shoppingList) {
+  const items = {}
+
+  shoppingList.forEach(item => {
+    const key = item.id + '-' + item.category;
+
+    if(items[key]){
+      items[key].quantity++;
+    } else {
+      items[key] = {...item, quantity: 1}
     }
+  });
+
+  const newList = Object.values(items);
+
+  orderItemsList.innerHTML = "";
+  createCardforTheShoppingCartItem(newList);
 };
 
 
-function createSelectedCategoryItemCard(selectedCategoryDb){
-    selectedCategoryDb.forEach((list_item) => {
-        const listItem = document.createElement("li");
-        const image = document.createElement("img");
-        const title = document.createElement("h3");
-        const category = document.createElement("p");
-        const price = document.createElement("p");
-
-        image.src = list_item.img;
-        title.textContent = list_item.name;
-        category.textContent = list_item.category;
-        price.innerText = `R$ ${list_item.price.toLocaleString('pt-BR', {
-            styles: 'currency',
-            currency: "BRD",
-            minimumFractionDigits: 2
-        })}`;
-
-        listItem.append(image, title, category, price);
-
-        selectedCategoryItems.appendChild(listItem);
-    })
-};
-
-function orderType(){
-    const orderTypeButton = document.querySelectorAll(".order_type_button");
-
-    orderTypeButton.forEach(button => {
-        button.addEventListener("click", () => {
-            orderTypeButton.forEach(btn => {
-                btn.parentNode.classList.remove('selected');
-            });
-            button.parentNode.classList.add('selected');
-        })
-    })
-};
+createCategoryCard(categories);
 
 orderType();
 createSelectedCategoryItemCard(hotBeverages);

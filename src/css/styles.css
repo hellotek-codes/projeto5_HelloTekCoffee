@@ -439,6 +439,9 @@ body {
 
           img {
             width: 50px;
+            height: 50px;
+            object-fit: cover;
+            /*object-fit: cover; */
           }
 
           button {
@@ -450,14 +453,16 @@ body {
             display: flex;
             flex-direction: column;
             gap: 0.4rem;
+            /* background-color: green; */
+            text-align: center;
 
             h3 {
-              font-size: 0.9rem;
+              font-size: 0.8rem;
               font-weight: 400;
             }
 
             p {
-              font-size: 0.8rem;
+              font-size: 0.7rem;
               font-weight: 400;
             }
           }
