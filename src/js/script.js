@@ -7,7 +7,8 @@ import { merchandise } from "./dataBase/merchandiseDataBase.js";
 const categoryList = document.querySelector(".category_list");
 const selectedCategoryItems = document.querySelector(".category_items");
 const orderItemsList = document.querySelector("#order_items_list");
-const shoppingCartArray = [];
+let shoppingCartArray = [];
+let newList = [];
 
 function createCategoryCard(categoriesListDb) {
   categoriesListDb.forEach((category) => {
@@ -68,8 +69,7 @@ function handleClick(event) {
   };
 
   shoppingCartArray.unshift(selectedItem);
-  createShoppingCartList(shoppingCartArray)
-  console.log(shoppingCartArray)
+  createShoppingCartList(shoppingCartArray);
 
   return selectedItem;
 }
@@ -135,6 +135,16 @@ function createCardforTheShoppingCartItem(itemsList) {
     deleteIcon.classList.add("fa", "fa-regular", "fa-trash-can", "fa-lg");
 
     itemDeleteButton.appendChild(deleteIcon);
+
+    itemDeleteButton.addEventListener("click", (event) => {
+      const item = {
+        id: orderItem.id,
+        category: itemCategory.innerText,
+      };
+
+      deleteItem(newList, item);
+    });
+
     itemDetailsContainer.append(itemName, itemCategory, itemQuantity);
     orderItem.append(image, itemDetailsContainer, itemDeleteButton);
 
@@ -143,26 +153,47 @@ function createCardforTheShoppingCartItem(itemsList) {
 }
 
 function createShoppingCartList(shoppingList) {
-  const items = {}
+  const items = {};
 
-  shoppingList.forEach(item => {
-    const key = item.id + '-' + item.category;
+  shoppingList.forEach((item) => {
+    const key = item.id + "-" + item.category;
 
-    if(items[key]){
+    if (items[key]) {
       items[key].quantity++;
     } else {
-      items[key] = {...item, quantity: 1}
+      items[key] = { ...item, quantity: 1 };
     }
   });
 
-  const newList = Object.values(items);
+  newList = Object.values(items);
 
   orderItemsList.innerHTML = "";
   createCardforTheShoppingCartItem(newList);
-};
+}
 
+function deleteItem(list, product) {
+  console.log(product);
+  const productId = Number(product.id);
+  const items = {};
+
+  newList.forEach((item) => {
+    const itemKey = item.id + "-" + item.category;
+    const productKey = product.id + "-" + product.category;
+
+    if (itemKey !== productKey) {
+      items[itemKey] = { ...item };
+    }
+  });
+
+  newList = Object.values(items);
+  shoppingCartArray = newList;
+
+  console.log(shoppingCartArray);
+  console.log(newList);
+  orderItemsList.innerHTML = "";
+  createShoppingCartList(newList);
+}
 
 createCategoryCard(categories);
-
 orderType();
 createSelectedCategoryItemCard(hotBeverages);
