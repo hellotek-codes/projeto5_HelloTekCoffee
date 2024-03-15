@@ -47,8 +47,8 @@
       
       <main>
         <section id="search">
-          <input type="text" placeholder="Search..." />
-          <button type="submit">
+          <input id="search_input" type="text" placeholder="Search..." />
+          <button type="submit" id="search_button">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </section>
@@ -66,38 +66,28 @@
         </section>
 
         <section id="order_reports">
-          <h2>Lista de pedidos</h2>
+          <h2>Lista de pedidos para entrega</h2>
           <p><span>Últimos pedidos</span></p>
-          <ul>
-            <li>
-              <p>Order ID: #12ed</p>
-              <p class="address">Address: 1478 N.52, West New York</p>
-              <p>Total $ 165.20</p>
-            </li>
-            <li>
-              <p>Order ID: #16rgd</p>
-              <p class="address">Address: 1478 N.52, West New York</p>
-              <p>Total $ 22.50</p>
-            </li>
-          </ul>
+          <ul id="confirmed_orders_container"></ul>
         </section>
 
       </main>
 
       <aside>
         <section id="delivery">
-          <h3>DELIVERY ADDRESS</h3>
+          <h3>ENDEREÇO PARA ENTREGA</h3>
           <p>
-            <i class="fa-solid fa-location-dot"></i> 1478, Street No. 52, West
-            New York
+            <i class="fa-solid fa-location-dot"></i> 
+            <input type="text" id="delivery_address_input">
+            <button id="address_button">Adicione</button>
           </p>
-          <p><i class="fa-regular fa-clock"></i> 20 min</p>
+          <p id="delivery_address"></p>
         </section>
 
         <section id="order">
           <div id="cart_title">
             <h2><i class="fa-solid fa-cart-shopping"></i> Carrinho</h2>
-            <p>Ordem ID: <span id="order_id">#12ed</span></p>
+            <p>Ordem ID: <span id="order_id"></span></p>
           </div>
 
           <ul id="order_type">
@@ -125,15 +115,15 @@
         <section id="order_sumary">
           <div>
             <p>Sub Total</p>
-            <p>$ 155.20</p>
+            <p id="sub_total"></p>
           </div>
           <div>
             <p>Entrega</p>
-            <p>$ 10</p>
+            <p id="delivery_cost"></p>
           </div>
-          <div id="total">
+          <div id="total_container">
             <p>TOTAL</p>
-            <p>$ 165.20</p>
+            <p id="total"></p>
           </div>
         </section>
         <button id="submit_order" type="submit">Confirmar Pedido</button>

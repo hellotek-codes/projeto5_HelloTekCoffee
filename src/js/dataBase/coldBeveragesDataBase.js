@@ -2,7 +2,7 @@ export const coldBeverages = [
   {
     id: 1,
     img: "./src/imgs/choc-milkshake.png",
-    name: "Milshake de Chocolate",
+    name: "Milkshake de Chocolate",
     category: "Bebida Fria",
     price: 5.50,
   },
