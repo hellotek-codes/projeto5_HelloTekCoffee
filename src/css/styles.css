@@ -17,9 +17,9 @@ body {
 }
 
 #frame {
-  width: 90%;
+  width: 95%;
   height: 85%;
-  max-width: 72rem;
+  max-width: 75rem;
 
   border-radius: 40px;
 
@@ -28,6 +28,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media(max-width: 1023px){
+    flex-direction: column;
+    gap: 2rem;
+    height: 90%;
+
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #313131 #1d1d1d;
+  }
 
   header {
     width: 15%;
@@ -46,6 +56,13 @@ body {
     align-items: center;
     justify-content: space-around;
 
+    @media(max-width: 1023px){
+      width: 100%;
+      padding: 1rem 0rem;
+      border-top-right-radius: 40px;
+      border-bottom-left-radius: 0px;
+    }
+
     nav {
       width: 100%;
       height: 70%;
@@ -55,6 +72,11 @@ body {
       justify-content: flex-start;
 
       /* background-color: green; */
+
+      @media(max-width: 1023px){
+        justify-content: center;
+        padding: 1.5rem 0;
+      }
 
       .icons {
         height: 80%;
@@ -82,6 +104,10 @@ body {
             }
           }
         }
+
+        @media(max-width: 1023px){
+          display: none;
+        }
       }
 
       ul {
@@ -98,16 +124,21 @@ body {
         li:hover {
           color: #ee5d55;
         }
+
+        @media(max-width: 1023px){
+          flex-direction: row;
+        }
       }
 
       .selected {
         color: #ee5d55;
       }
     }
+
   }
 
   main {
-    width: 56%;
+    width: 54%;
     height: 95%;
     /* background-color: yellow; */
 
@@ -116,6 +147,12 @@ body {
     align-items: center;
     justify-content: space-between;
     position: relative;
+    margin: 0 5px 0 5px;
+
+    @media(max-width: 1023px){
+     width: 90%; 
+     gap: 1.5rem;
+    }
 
     section {
       width: 100%;
@@ -310,6 +347,8 @@ body {
     width: 25%;
     height: 95%;
 
+    min-width: 300px;
+
     border-radius: 20px;
     margin-right: 15px;
     background-color: #525252;
@@ -318,6 +357,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
+    @media(max-width: 1023px){
+      width: 90%;
+      gap: 1.5rem;
+
+      padding:1rem 0;
+      margin-bottom: 2rem;
+
+    }
 
     #delivery {
       display: flex;
@@ -334,6 +382,11 @@ body {
       font-size: 0.7rem;
       color: #fff;
 
+      @media(max-width: 1023px){
+        min-height: 7.5rem;
+      }
+
+      
       input {
         color: #fff;
         padding: 5px 0;
@@ -341,6 +394,13 @@ body {
         border-radius: 50px;
         width: 67%;
         background-color: #525252;
+
+        @media(max-width: 1025px){
+          margin-left: 5px;
+          margin-bottom: 10px;
+          width: 80%;
+        }
+  
       }
 
       button {
@@ -349,6 +409,10 @@ body {
         font-size: 12px;
         color: #fff;
         background-color: #1d1d1d;
+
+        @media(max-width: 1025px){
+          /* padding: 5px 10%; */
+        }
       }
 
       p {
@@ -399,6 +463,10 @@ body {
         border: 2px solid #6f6f6f;
         border-radius: 50px;
 
+        @media(max-width: 1023px){
+          justify-content: space-around;
+        }
+
         li {
           font-size: 0.75rem;
           padding: 0.7rem 0.8rem;
@@ -437,6 +505,11 @@ body {
         overflow-x: auto;
         scrollbar-width: thin;
         scrollbar-color: #313131 #525252;
+        
+        @media(max-width: 1023px){
+          height: 8rem;
+          border-bottom: none;
+        }
 
         .order_item {
           width: 95%;
@@ -448,6 +521,10 @@ body {
           border-bottom: 1px solid #6f6f6f;
           padding-bottom: 1rem;
           /* background-color: blue; */
+
+          @media(max-width: 1023px){
+            justify-content: space-around;
+          }
 
           color: #fff;
 
@@ -495,6 +572,10 @@ body {
         left: -27px;
         border-radius: 50%;
         background-color: #1d1d1d;
+
+        @media(max-width: 1023px){
+          display: none;
+        }
       }
 
       #circle_decoration_right {
@@ -506,6 +587,10 @@ body {
         right: -27px;
         border-radius: 50%;
         background-color: #1d1d1d;
+
+        @media(max-width: 1023px){
+          display: none;
+        }
       }
 
       #promotion_code {
@@ -592,9 +677,6 @@ body {
     }
   }
 
-  @media (max-width: 700px) {
-    flex-direction: column;
-  }
 }
 
 /* Não funciona com CSS aninhado */

@@ -1,4 +1,3 @@
-
 export const hotBeverages = [
     {
       id: 1,

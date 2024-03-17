@@ -1,6 +1,6 @@
 import { categories } from "./dataBase/categoriesDatabase.js";
 import { coldBeverages } from "./dataBase/coldBeveragesDataBase.js";
-import { hotBeverages } from "./dataBase/hotBeveragesDatabase.js";
+import { hotBeverages } from "./dataBase/hotDrinks.js";
 import { food } from "./dataBase/foodDataBase.js";
 import { merchandise } from "./dataBase/merchandiseDataBase.js";
 
