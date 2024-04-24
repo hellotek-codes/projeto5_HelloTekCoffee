@@ -58,12 +58,14 @@ function createCategoryCard(categoriesListDb) {
 
     image.src = category.img;
 
+    
     button.appendChild(image);
     button.addEventListener("click", () => {
       displayCategoryItems(category);
     });
 
     listItem.appendChild(button);
+    listItem.setAttribute("title", category.name);
 
     categoryList.appendChild(listItem);
   });
