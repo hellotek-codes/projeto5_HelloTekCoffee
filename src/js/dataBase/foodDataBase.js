@@ -16,7 +16,7 @@ export const food = [
   {
     id: 3,
     img: "./src/imgs/cake.jpg",
-    name: "Bolo de Queijo",
+    name: "Torta",
     category: "Comida",
     price: 4,
   },

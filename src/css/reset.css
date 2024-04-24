@@ -5,6 +5,10 @@
 
     & input {
         border: none;
+
+        &:focus{
+            outline: none;
+        }
     }
 
     & button {

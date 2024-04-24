@@ -92,7 +92,7 @@ function getDeliveryAddress() {
   console.log(deliveryAddress);
 }
 
-addressButton.addEventListener("click", getDeliveryAddress);
+// addressButton.addEventListener("click", getDeliveryAddress);
 
 function generateRandomID(length) {
   let result = "";
