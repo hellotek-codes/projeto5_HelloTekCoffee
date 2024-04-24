@@ -6,8 +6,8 @@ const orderItemsList = document.querySelector("#order_items_list");
 let shoppingCartArray = [];
 let newList = [];
 
-const addressButton = document.querySelector("#address_button");
-const deliveryAddress = document.querySelector("#delivery_address");
+// const addressButton = document.querySelector("#address_button");
+// const deliveryAddress = document.querySelector("#delivery_address");
 const orderID = document.querySelector("#order_id");
 let randomID = generateRandomID(4);
 orderID.innerText = `#${randomID}`;
@@ -81,16 +81,16 @@ function createSelectedCategoryItemCard(selectedCategoryDb) {
   selectedCategoryItems.addEventListener("click", handleClick);
 }
 
-function getDeliveryAddress() {
-  const deliveryAddressInput = document.querySelector(
-    "#delivery_address_input"
-  );
+// function getDeliveryAddress() {
+//   const deliveryAddressInput = document.querySelector(
+//     "#delivery_address_input"
+//   );
 
-  let userInput = deliveryAddressInput.value;
-  deliveryAddress.innerText = userInput;
-  deliveryAddressInput.value = "";
-  console.log(deliveryAddress);
-}
+//   let userInput = deliveryAddressInput.value;
+//   deliveryAddress.innerText = userInput;
+//   deliveryAddressInput.value = "";
+//   console.log(deliveryAddress);
+// }
 
 // addressButton.addEventListener("click", getDeliveryAddress);
 
@@ -288,12 +288,12 @@ function submitOrder(orderId, totalOrderAmmount) {
 
         confirmedOrderId.innerText = `Pedido ID: ${orderId.innerText}`;
 
-        if (deliveryAddress.innerText === "") {
-          alert("Adicione o endereço para a entrega");
-          return;
-        }
+        // if (deliveryAddress.innerText === "") {
+        //   alert("Adicione o endereço para a entrega");
+        //   return;
+        // }
 
-        address.innerText = `Endereço: ${deliveryAddress.innerText}`;
+        address.innerText = `End: Av. Paulista, 1234, Curitiba`;
         total.innerText = `${totalOrderAmmount.innerText}`;
 
         confirmedOrderContainer.append(confirmedOrderId, address, total);
@@ -306,7 +306,7 @@ function submitOrder(orderId, totalOrderAmmount) {
       subTotal.innerText = "";
       total.innerText = "";
       count = 0;
-      deliveryAddress.innerText = "";
+      // deliveryAddress.innerText = "";
 
       let newOrderID = generateRandomID(4);
       orderID.innerText = `#${newOrderID}`;
