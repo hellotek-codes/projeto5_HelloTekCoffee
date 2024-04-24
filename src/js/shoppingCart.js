@@ -169,7 +169,7 @@ function createCardforTheShoppingCartItem(itemsList) {
     itemQuantity.innerText = `Quantidade: ${item.quantity}`;
     deleteIcon.classList.add("fa", "fa-regular", "fa-trash-can", "fa-lg");
 
-    itemDeleteButton.setAttribute("title", "excluir item");
+    itemDeleteButton.setAttribute("title", "Remover");
     itemDeleteButton.appendChild(deleteIcon);
 
     itemDeleteButton.addEventListener("click", (event) => {
