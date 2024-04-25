@@ -32,7 +32,7 @@ body {
   @media(max-width: 1023px){
     flex-direction: column;
     gap: 2rem;
-    height: 90%;
+    height: 97%;
 
     overflow-x: auto;
     scrollbar-width: thin;

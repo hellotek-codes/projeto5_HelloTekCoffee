@@ -24,6 +24,10 @@ header {
 
   .logo {
     width: 80%;
+
+    @media (max-width: 1023px){
+      width: 30%;
+    }
   }
 
   nav {
