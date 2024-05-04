@@ -16,14 +16,6 @@ let count = 0;
 let deliveryPrice = 10;
 let countTotal = count + deliveryPrice;
 let deliveryCost = document.querySelector("#delivery_cost");
-deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
-  styles: "currency",
-  currency: "BRD",
-  minimumFractionDigits: 2,
-})}`;
-
-let subTotal = document.querySelector("#sub_total");
-let total = document.querySelector("#total");
 
 function findItem(searchTerm) {
   const databases = [coldBeverages, hotBeverages, food, merchandise];
@@ -58,25 +50,37 @@ function createCategoryCard(categoriesListDb) {
 
     image.src = category.img;
 
-    
     button.appendChild(image);
+    // button.classList.remove("selectedCategory");
+   
     button.addEventListener("click", () => {
+      document.querySelectorAll(".selectedCategory").forEach((btn) => {
+        btn.classList.remove("selectedCategory");
+      });
+
+      button.classList.add("selectedCategory");  
+
       displayCategoryItems(category);
     });
+
 
     listItem.appendChild(button);
     listItem.setAttribute("title", category.name);
 
     categoryList.appendChild(listItem);
+
   });
+
 }
 
 function displayCategoryItems(category) {
   selectedCategoryItems.innerHTML = "";
-
+  
   switch (category.id) {
     case 1:
       createSelectedCategoryItemCard(hotBeverages);
+
+      // console.log(category)
       break;
     case 2:
       createSelectedCategoryItemCard(coldBeverages);
@@ -143,86 +147,96 @@ function createSelectedCategoryItemCard(selectedCategoryDb) {
   selectedCategoryItems.addEventListener("click", handleClick);
 }
 
-function createCardforTheShoppingCartItem(itemsList) {
-  itemsList.forEach((item) => {
-    const orderItem = document.createElement("li");
-    const image = document.createElement("img");
-    const itemDetailsContainer = document.createElement("div");
-    const itemName = document.createElement("h3");
-    const itemCategory = document.createElement("p");
-    const itemQuantity = document.createElement("p");
-    const deleteIcon = document.createElement("i");
-    const itemDeleteButton = document.createElement("button");
+deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
+  styles: "currency",
+  currency: "BRD",
+  minimumFractionDigits: 2,
+})}`;
 
-    orderItem.classList.add("order_item");
-    orderItem.id = item.id;
-    image.src = item.image;
-    itemDetailsContainer.classList.add("item_description");
-    itemName.innerText = item.title;
-    itemCategory.innerText = item.category;
-    itemQuantity.innerText = `Quantidade: ${item.quantity}`;
-    deleteIcon.classList.add("fa", "fa-regular", "fa-trash-can", "fa-lg");
+let subTotal = document.querySelector("#sub_total");
+let total = document.querySelector("#total");
 
-    itemDeleteButton.appendChild(deleteIcon);
 
-    itemDeleteButton.addEventListener("click", (event) => {
-      const item = {
-        id: orderItem.id,
-        category: itemCategory.innerText,
-      };
 
-      deleteItem(newList, item);
-    });
+// function createCardforTheShoppingCartItem(itemsList) {
+//   itemsList.forEach((item) => {
+//     const orderItem = document.createElement("li");
+//     const image = document.createElement("img");
+//     const itemDetailsContainer = document.createElement("div");
+//     const itemName = document.createElement("h3");
+//     const itemCategory = document.createElement("p");
+//     const itemQuantity = document.createElement("p");
+//     const deleteIcon = document.createElement("i");
+//     const itemDeleteButton = document.createElement("button");
 
-    itemDetailsContainer.append(itemName, itemCategory, itemQuantity);
-    orderItem.append(image, itemDetailsContainer, itemDeleteButton);
+//     orderItem.classList.add("order_item");
+//     orderItem.id = item.id;
+//     image.src = item.image;
+//     itemDetailsContainer.classList.add("item_description");
+//     itemName.innerText = item.title;
+//     itemCategory.innerText = item.category;
+//     itemQuantity.innerText = `Quantidade: ${item.quantity}`;
+//     deleteIcon.classList.add("fa", "fa-regular", "fa-trash-can", "fa-lg");
 
-    orderItemsList.appendChild(orderItem);
-  });
-}
+//     itemDeleteButton.appendChild(deleteIcon);
 
-function createShoppingCartList(shoppingList) {
-  const items = {};
+//     itemDeleteButton.addEventListener("click", (event) => {
+//       const item = {
+//         id: orderItem.id,
+//         category: itemCategory.innerText,
+//       };
 
-  shoppingList.forEach((item) => {
-    const key = item.id + "-" + item.category;
+//       deleteItem(newList, item);
+//     });
 
-    if (items[key]) {
-      items[key].quantity++;
-    } else {
-      items[key] = { ...item, quantity: 1 };
-    }
-  });
+//     itemDetailsContainer.append(itemName, itemCategory, itemQuantity);
+//     orderItem.append(image, itemDetailsContainer, itemDeleteButton);
 
-  newList = Object.values(items);
+//     orderItemsList.appendChild(orderItem);
+//   });
+// }
 
-  count = 0;
-  newList.forEach((product) => {
-    let price = product.price;
+// function createShoppingCartList(shoppingList) {
+//   const items = {};
 
-    // Transformando o preço de string para número retirando o R$
-    let addValue = parseFloat(price.match(/\d+(,\d+)?/)[0].replace(",", "."));
-    count += addValue * product.quantity;
-  });
+//   shoppingList.forEach((item) => {
+//     const key = item.id + "-" + item.category;
 
-  subTotal.innerText = `R$ ${count.toLocaleString("pt-BR", {
-    styles: "currency",
-    currency: "BRD",
-    minimumFractionDigits: 2,
-  })}`;
+//     if (items[key]) {
+//       items[key].quantity++;
+//     } else {
+//       items[key] = { ...item, quantity: 1 };
+//     }
+//   });
 
-  countTotal = count + deliveryPrice;
-  total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
-    styles: "currency",
-    currency: "BRD",
-    minimumFractionDigits: 2,
-  })}`;
+//   newList = Object.values(items);
 
-  orderItemsList.innerHTML = "";
-  createCardforTheShoppingCartItem(newList);
+//   count = 0;
+//   newList.forEach((product) => {
+//     let price = product.price;
 
-  return newList;
-}
+//     // Transformando o preço de string para número retirando o R$
+//     let addValue = parseFloat(price.match(/\d+(,\d+)?/)[0].replace(",", "."));
+//     count += addValue * product.quantity;
+//   });
+
+//   subTotal.innerText = `R$ ${count.toLocaleString("pt-BR", {
+//     styles: "currency",
+//     currency: "BRD",
+//     minimumFractionDigits: 2,
+//   })}`;
+
+//   countTotal = count + deliveryPrice;
+//   total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
+//     styles: "currency",
+//     currency: "BRD",
+//     minimumFractionDigits: 2,
+//   })}`;
+
+//   orderItemsList.innerHTML = "";
+//   createCardforTheShoppingCartItem(newList);
+
+//   return newList;
+// }
 
 createCategoryCard(categories);
-

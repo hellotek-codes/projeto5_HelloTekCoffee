@@ -102,6 +102,11 @@ main {
             border-radius: 50%;
           }
         }
+
+        .selectedCategory {
+          border: 2px solid #ee5d55;
+          border-radius: 50%;
+        }
       }
       /* background-color: orange; */
     }
@@ -206,8 +211,8 @@ main {
       padding: 0.5rem 0rem 0.5rem 0rem;
 
       /* background-color: #ee5d55; */
-    
-      @media (max-width: 1023px){
+
+      @media (max-width: 1023px) {
         height: 6rem;
       }
 
@@ -219,8 +224,8 @@ main {
         flex-direction: row;
         align-items: flex-start;
         /* justify-content: space-between; */
-        
-        @media (max-width: 1023px){
+
+        @media (max-width: 1023px) {
           gap: 0.7rem;
         }
 
