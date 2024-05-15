@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./src/css/reset.css" />
-    <link rel="stylesheet" href="./src/css/generalStyles.css"/>
-    <link rel="stylesheet" href="./src/css/header.css"/>
-    <link rel="stylesheet" href="./src/css/main.css"/>
-    <link rel="stylesheet" href="./src/css/aside.css"/>
+    <link rel="stylesheet" href="./src/css/generalStyles.css" />
+    <link rel="stylesheet" href="./src/css/section.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/aside.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nixie+One&family=Numans&display=swap"
@@ -22,8 +22,8 @@
   </head>
   <body>
     <div id="frame">
-      <header>
-        <img src="./src/imgs/logo2.png" class="logo">
+      <section class="menu">
+        <img src="./src/imgs/logo2.png" class="logo" />
         <nav>
           <div class="icons">
             <ul>
@@ -49,11 +49,15 @@
           </ul>
           <!-- <a href="#">Config</a> -->
         </nav>
-      </header>
-      
+      </section>
+
       <main>
         <section id="search">
-          <input id="search_input" type="text" placeholder="Pesquisar Produto..." />
+          <input
+            id="search_input"
+            type="text"
+            placeholder="Pesquisar Produto..."
+          />
           <button type="submit" id="search_button">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -61,10 +65,12 @@
 
         <section id="categories">
           <h2>Categorias</h2>
-          <p>Click na imagem para <span>selecionar</span> a Categoria desejada</p>
+          <p>
+            Click na imagem para <span>selecionar</span> a Categoria desejada
+          </p>
           <ul class="category_list"></ul>
         </section>
-        
+
         <section id="selected_category">
           <h2>Itens da categoria selecionada</h2>
           <p><span>Click no item</span> para adicionar ao carrinho</p>
@@ -76,7 +82,6 @@
           <p><span>Últimos pedidos</span></p>
           <ul id="confirmed_orders_container"></ul>
         </section>
-
       </main>
 
       <aside>
@@ -84,7 +89,7 @@
           <h3>ENDEREÇO PARA ENTREGA</h3>
           <p>
             <i class="fa-solid fa-location-dot"></i>
-            Av. Paulista, 1234, Curitiba. 
+            Av. Paulista, 1234, Curitiba.
             <!-- <input type="text" id="delivery_address_input">
             <button id="address_button">Adicione</button> -->
           </p>
@@ -108,7 +113,7 @@
               <button type="submit" class="order_type_button">Para Levar</button>
             </li>
           </ul> -->
-          
+
           <ul id="order_items_list"></ul>
 
           <div id="circle_decoration_left"></div>
