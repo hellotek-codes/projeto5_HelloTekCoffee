@@ -42,7 +42,7 @@ aside {
       min-height: 7.5rem;
     }
 
-    input {
+    /* input {
       color: #fff;
       padding: 5px 0;
       padding-left: 0.65rem;
@@ -55,7 +55,7 @@ aside {
         margin-bottom: 10px;
         width: 80%;
       }
-    }
+    } */
 
     button {
       border-radius: 50px;
@@ -200,7 +200,8 @@ aside {
         button {
           padding: 0.3rem 0.6rem;
           border-radius: 40px;
-          background-color: #FF0000;
+          background-color: #e2170c;
+          color: #fff;
         }
 
         .item_description {
