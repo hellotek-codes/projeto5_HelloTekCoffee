@@ -79,8 +79,6 @@ function displayCategoryItems(category) {
   switch (category.id) {
     case 1:
       createSelectedCategoryItemCard(hotBeverages);
-
-      // console.log(category)
       break;
     case 2:
       createSelectedCategoryItemCard(coldBeverages);
@@ -155,88 +153,5 @@ deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
 
 let subTotal = document.querySelector("#sub_total");
 let total = document.querySelector("#total");
-
-
-
-// function createCardforTheShoppingCartItem(itemsList) {
-//   itemsList.forEach((item) => {
-//     const orderItem = document.createElement("li");
-//     const image = document.createElement("img");
-//     const itemDetailsContainer = document.createElement("div");
-//     const itemName = document.createElement("h3");
-//     const itemCategory = document.createElement("p");
-//     const itemQuantity = document.createElement("p");
-//     const deleteIcon = document.createElement("i");
-//     const itemDeleteButton = document.createElement("button");
-
-//     orderItem.classList.add("order_item");
-//     orderItem.id = item.id;
-//     image.src = item.image;
-//     itemDetailsContainer.classList.add("item_description");
-//     itemName.innerText = item.title;
-//     itemCategory.innerText = item.category;
-//     itemQuantity.innerText = `Quantidade: ${item.quantity}`;
-//     deleteIcon.classList.add("fa", "fa-regular", "fa-trash-can", "fa-lg");
-
-//     itemDeleteButton.appendChild(deleteIcon);
-
-//     itemDeleteButton.addEventListener("click", (event) => {
-//       const item = {
-//         id: orderItem.id,
-//         category: itemCategory.innerText,
-//       };
-
-//       deleteItem(newList, item);
-//     });
-
-//     itemDetailsContainer.append(itemName, itemCategory, itemQuantity);
-//     orderItem.append(image, itemDetailsContainer, itemDeleteButton);
-
-//     orderItemsList.appendChild(orderItem);
-//   });
-// }
-
-// function createShoppingCartList(shoppingList) {
-//   const items = {};
-
-//   shoppingList.forEach((item) => {
-//     const key = item.id + "-" + item.category;
-
-//     if (items[key]) {
-//       items[key].quantity++;
-//     } else {
-//       items[key] = { ...item, quantity: 1 };
-//     }
-//   });
-
-//   newList = Object.values(items);
-
-//   count = 0;
-//   newList.forEach((product) => {
-//     let price = product.price;
-
-//     // Transformando o preço de string para número retirando o R$
-//     let addValue = parseFloat(price.match(/\d+(,\d+)?/)[0].replace(",", "."));
-//     count += addValue * product.quantity;
-//   });
-
-//   subTotal.innerText = `R$ ${count.toLocaleString("pt-BR", {
-//     styles: "currency",
-//     currency: "BRD",
-//     minimumFractionDigits: 2,
-//   })}`;
-
-//   countTotal = count + deliveryPrice;
-//   total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
-//     styles: "currency",
-//     currency: "BRD",
-//     minimumFractionDigits: 2,
-//   })}`;
-
-//   orderItemsList.innerHTML = "";
-//   createCardforTheShoppingCartItem(newList);
-
-//   return newList;
-// }
 
 createCategoryCard(categories);
