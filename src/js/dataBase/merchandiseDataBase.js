@@ -1,7 +1,7 @@
 export const merchandise = [
   {
     id: 1,
-    img: "./src/img/french-press2.jpg",
+    img: "./src/img/french-press.jpg",
     name: "French Press",
     category: "Mercadoria",
     price: 30.5,

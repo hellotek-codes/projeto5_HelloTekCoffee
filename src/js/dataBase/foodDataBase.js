@@ -1,7 +1,7 @@
 export const food = [
   {
     id: 1,
-    img: "./src/img/muffin2.jpg",
+    img: "./src/img/chocolate-muffin.jpg",
     name: "Muffin",
     category: "Comida",
     price: 6.50,
