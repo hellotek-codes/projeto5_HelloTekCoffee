@@ -3,18 +3,15 @@ import { coldBeverages } from "./dataBase/coldBeveragesDataBase.js";
 import { hotBeverages } from "./dataBase/hotDrinks.js";
 import { food } from "./dataBase/foodDataBase.js";
 import { merchandise } from "./dataBase/merchandiseDataBase.js";
+import { currencySet } from "./shoppingCart.js";
+
 
 const searchButton = document.querySelector("#search_button");
 const categoryList = document.querySelector(".category_list");
 const selectedCategoryItems = document.querySelector(".category_items");
-const orderItemsList = document.querySelector("#order_items_list");
 
 let shoppingCartArray = [];
-let newList = [];
-
-let count = 0;
 let deliveryPrice = 10;
-let countTotal = count + deliveryPrice;
 let deliveryCost = document.querySelector("#delivery_cost");
 
 function findItem(searchTerm) {
@@ -49,10 +46,8 @@ function createCategoryCard(categoriesListDb) {
     const image = document.createElement("img");
 
     image.src = category.img;
-
     button.appendChild(image);
-    // button.classList.remove("selectedCategory");
-   
+
     button.addEventListener("click", () => {
       document.querySelectorAll(".selectedCategory").forEach((btn) => {
         btn.classList.remove("selectedCategory");
@@ -132,12 +127,8 @@ function createSelectedCategoryItemCard(selectedCategoryDb) {
     image.src = list_item.img;
     name.textContent = list_item.name;
     category.textContent = list_item.category;
-    price.innerText = `R$ ${list_item.price.toLocaleString("pt-BR", {
-      styles: "currency",
-      currency: "BRD",
-      minimumFractionDigits: 2,
-    })}`;
-
+    currencySet(price, list_item.price);
+    
     listItem.append(image, name, category, price);
     selectedCategoryItems.appendChild(listItem);
   });
@@ -145,13 +136,5 @@ function createSelectedCategoryItemCard(selectedCategoryDb) {
   selectedCategoryItems.addEventListener("click", handleClick);
 }
 
-deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
-  styles: "currency",
-  currency: "BRD",
-  minimumFractionDigits: 2,
-})}`;
-
-let subTotal = document.querySelector("#sub_total");
-let total = document.querySelector("#total");
-
+currencySet(deliveryCost, deliveryPrice);
 createCategoryCard(categories);

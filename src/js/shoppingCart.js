@@ -11,16 +11,25 @@ let randomID = generateRandomID(4);
 orderID.innerText = `#${randomID}`;
 
 let isDelivery = 1;
-
 let count = 0;
 let deliveryPrice = 10;
 let countTotal = count + deliveryPrice;
 let deliveryCost = document.querySelector("#delivery_cost");
-deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
-  styles: "currency",
-  currency: "BRD",
-  minimumFractionDigits: 2,
-})}`;
+
+function currencySet(fieldTo, fieldFrom) {
+  fieldTo.innerText = `R$ ${fieldFrom.toLocaleString("pt-BR", {
+    styles: "currency",
+    currency: "BRD",
+    minimumFractionDigits: 2,
+  })}`;
+}
+
+currencySet(deliveryCost, deliveryPrice);
+// deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
+//   styles: "currency",
+//   currency: "BRD",
+//   minimumFractionDigits: 2,
+// })}`;
 
 let subTotal = document.querySelector("#sub_total");
 let total = document.querySelector("#total");
@@ -66,11 +75,13 @@ function createSelectedCategoryItemCard(selectedCategoryDb) {
     image.src = list_item.img;
     name.textContent = list_item.name;
     category.textContent = list_item.category;
-    price.innerText = `R$ ${list_item.price.toLocaleString("pt-BR", {
-      styles: "currency",
-      currency: "BRD",
-      minimumFractionDigits: 2,
-    })}`;
+
+    currencySet(price, list_item.price);
+    // price.innerText = `R$ ${list_item.price.toLocaleString("pt-BR", {
+    //   styles: "currency",
+    //   currency: "BRD",
+    //   minimumFractionDigits: 2,
+    // })}`;
 
     listItem.append(image, name, category, price);
     selectedCategoryItems.appendChild(listItem);
@@ -101,27 +112,33 @@ function orderType() {
         deliveryPrice = 0;
         deliveryCost.innerText = "";
         countTotal = count - deliveryPrice;
-        total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
-          styles: "currency",
-          currency: "BRD",
-          minimumFractionDigits: 2,
-        })}`;
+        currencySet(total, countTotal);
+
+        // total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
+        //   styles: "currency",
+        //   currency: "BRD",
+        //   minimumFractionDigits: 2,
+        // })}`;
       } else {
         isDelivery = 1;
         deliveryPrice = 10;
 
-        deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
-          styles: "currency",
-          currency: "BRD",
-          minimumFractionDigits: 2,
-        })}`;
+
+        currencySet(deliveryCost, deliveryPrice);
+        // deliveryCost.innerText = `R$ ${deliveryPrice.toLocaleString("pt-BR", {
+        //   styles: "currency",
+        //   currency: "BRD",
+        //   minimumFractionDigits: 2,
+        // })}`;
 
         countTotal = count + deliveryPrice;
-        total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
-          styles: "currency",
-          currency: "BRD",
-          minimumFractionDigits: 2,
-        })}`;
+
+        currencySet(total, countTotal)
+        // total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
+        //   styles: "currency",
+        //   currency: "BRD",
+        //   minimumFractionDigits: 2,
+        // })}`;
       }
 
       orderTypeButton.forEach((btn) => {
@@ -196,18 +213,20 @@ function createShoppingCartList(shoppingList) {
     count += addValue * product.quantity;
   });
 
-  subTotal.innerText = `R$ ${count.toLocaleString("pt-BR", {
-    styles: "currency",
-    currency: "BRD",
-    minimumFractionDigits: 2,
-  })}`;
+  currencySet(subTotal, count);
+  // subTotal.innerText = `R$ ${count.toLocaleString("pt-BR", {
+  //   styles: "currency",
+  //   currency: "BRD",
+  //   minimumFractionDigits: 2,
+  // })}`;
 
   countTotal = count + deliveryPrice;
-  total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
-    styles: "currency",
-    currency: "BRD",
-    minimumFractionDigits: 2,
-  })}`;
+  currencySet(total, countTotal)
+  // total.innerText = `R$ ${countTotal.toLocaleString("pt-BR", {
+  //   styles: "currency",
+  //   currency: "BRD",
+  //   minimumFractionDigits: 2,
+  // })}`;
 
   orderItemsList.innerHTML = "";
   createCardforTheShoppingCartItem(newList);
@@ -239,11 +258,12 @@ function deleteItem(list, product) {
     count -= addValue * product.quantity;
   });
 
-  subTotal.innerText = `R$ ${count.toLocaleString("pt-BR", {
-    styles: "currency",
-    currency: "BRD",
-    minimumFractionDigits: 2,
-  })}`;
+  currencySet(subTotal, count);
+  // subTotal.innerText = `R$ ${count.toLocaleString("pt-BR", {
+  //   styles: "currency",
+  //   currency: "BRD",
+  //   minimumFractionDigits: 2,
+  // })}`;
 
   orderItemsList.innerHTML = "";
   createShoppingCartList(newList);
